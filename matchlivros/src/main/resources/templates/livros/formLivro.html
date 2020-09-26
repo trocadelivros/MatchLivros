@@ -2,17 +2,309 @@
 <html xmls:th="http://thymeleaf.org"
 	  xmls:layout="http://ultraq.net.nz/thymeleaf/layout">
 <head>
-	<title>MatchLivros</title>
+	<html xmlns:th="http://www.thymeleaf.org" lang="PT-BR">
+<meta charset="UTF-8">
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>Match de livros - encontre o seu livro ideal</title>
+
+<!--     Fonts and icons     -->
+<link rel="icon" type="image/png" href="../../img/icon.png" th:href="@{/img/icon.png}">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<!-- CSS Files -->
+  <script src="../../js/dropzone-5.7.0/dist/dropzone.js"></script>
+
+  <link rel="stylesheet" href="../../js/dropzone-5.7.0/dist/dropzone.css"/>
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<link href="../../css/now-ui-kit.css?v=1.3.0" rel="stylesheet" th:href="@{/css/now-ui-kit.css?v=1.3.0}" />
+<link href="../../css/main.css" rel="stylesheet" th:href="@{/css/main.css}" />
+<link href="../../css/all.min.css" rel="stylesheet" th:href="@{/css/all.min.css}">  
 </head>
-	<h1>Cadastro de Livros</h1>
+<body class="index-page sidebar-collapse">
+ <!-- Navbar -->
+  <nav class="navbar bg-primary fixed-top navbar-principal">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip" title="Encontre seu livro ideal" data-placement="bottom" target="_blank">
+          <img src="../../img/logo-mdl.png">Match de livros
+        </a>
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group main-search">
+            <input type="text" class="form-control bg-light border-0 small input-search ml-5" placeholder="Pesquisar livros..." aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary btn-search" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end nav-i" id="navigation" data-nav-image="../../img/blurred-image-1.jpg">
+        <div class="search-books">
+
+        </div>
+       
+      </div>
+    </div>
+    
+  </nav>
+  
+  <!-- End Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-categories">
+    <div class="container">
+      <div class="navbar-translate">
+        <div></div>
+        <button class="navbar-toggler-c navbar-toggler-c" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar navbar-toggler-black top-bar"></span>
+          <span class="navbar-toggler-bar navbar-toggler-black middle-bar"></span>
+          <span class="navbar-toggler-bar navbar-toggler-black bottom-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse nav-c" id="navigation">
+        <ul class="navbar-nav nav-categories"> 
+          <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle text-muted" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categorias
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Literatura</a>
+              <a class="dropdown-item" href="#">Técnicos e profissionais</a>
+              <a class="dropdown-item" href="#">Outros idiomas</a>
+              <a class="dropdown-item" href="#">Desenvolvimento pessoal</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle text-muted" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Trocas
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Histórico de trocas</a>
+              <a class="dropdown-item" href="#">Trocas solicitadas</a>
+              <a class="dropdown-item" href="#">Trocas em andamento</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle text-muted" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Doações
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Histórico de doações</a>
+              <a class="dropdown-item" href="#">Doações solicitadas</a>
+              <a class="dropdown-item" href="#">Doações em andamento</a>
+            </div>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" href="https://www.creative-tim.com/product/now-ui-kit-pro" target="_blank">
+              <p class="text-muted">Meus livros</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+
+
+      <div class="collapse navbar-collapse nav-c justify-content-end" id="navigation">
+        <ul class="navbar-nav nav-categories"> 
+          <li class="nav-item dropdown mr-3">
+            <a class="nav-link dropdown-toggle text-muted" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="now-ui-icons users_circle-08"></i>  
+              <p class="text-muted">Username</p>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Meu perfil</a>
+              <a class="dropdown-item" href="#">Favoritos</a>
+              <a class="dropdown-item" href="#">Configurações</a>
+              <a class="dropdown-item" href="#">Sair</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown mr-2" style="margin-top: -4%;">
+            <a href="#" class="btn btn-primary btn-icon btn-round btn-actions">
+              <i class="now-ui-icons ui-2_chat-round"></i></a> 
+          </li>
+          <li class="nav-item dropdown mr-2" style="margin-top: -4%;">
+            <a href="#" class="btn btn-primary  btn-icon btn-round btn-actions">
+              <i class="now-ui-icons ui-1_bell-53"></i></a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="wrapper">
+  	<div class="row bg-white mb-3 p-3 nav-filter">
+        <h1 class="h5  ml-5">Cadastrar livro</h1>
+   	</div>
+    
+    <div class="container">
+    	<form action="/file-upload" class="dropzone mb-5">
+  			<div class="fallback">
+    			<input name="file" type="file" multiple id="file" />
+  			</div>
+  
+  			<div class="w-100">
+	  			<label for="file" class="d-flex justify-content-center">
+	   				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+					<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_uKAOG6.json"  
+						background="transparent"  
+						speed="1"  
+						style="width: 300px; 
+						height: 300px;" autoplay>
+					</lottie-player>
+	  			</label>
+			</div>
+		</form>
+
+			<form method="post">
+				<div class="form-group">
+					<label for="nome">Título</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text text-register-book pr-3"><i class="fas fa-pencil-alt"></i></span>
+						</div>
+						<input type="text" class="form-control register-book" id="nome" name="nome"
+							placeholder="Digite o título">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="autor">Autor</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text text-register-book pr-3"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control register-book" id="autor" name="autor"
+							placeholder="Digite o nome do autor">
+					</div>
+				</div>
+				<div class="row">
+				<div class="form-group  col-md-6">
+					<label for="autor">Ano de publicação</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text text-register-book pr-3"><i class="far fa-calendar"></i></span>
+						</div>
+						<input type="text" class="form-control register-book" id="anolancamento" name="anolancamento"
+							placeholder="Digite o ano de publicação">
+					</div>
+				</div>
+				
+				<div class="form-group  col-md-6">
+					<label for="autor">Edição</label>
+					<div class="input-group">
+						<input type="text" class="form-control register-book" id="anolancamento" name="edicao"
+							placeholder="Digite o número de edição">
+					</div>
+				</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="autor">Editora</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text text-register-book pr-3"><i class="fas fa-book"></i></span>
+						</div>
+						<input type="text" class="form-control register-book" id="editora" name="editora"
+							placeholder="Digite o nome da editora">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="descricao">Sinopse ou descrição</label>
+					<div class="input-group">
+						<textarea class="form-control" id="descricao" name="descricao"
+							placeholder="Digite aqui a descrição ou sinopse do livro"></textarea>
+						
+					</div>
+				</div>
+
+				<!--  Nome do Livro:<input type="text" value="" name="nome">
+				Descricao:<input type="text" value="" name="descricao"> Ano
+				de Lancamento:<input type="date" value="" name="anolancamento">
+				Editora:<input type="text" value="" name="editora">-->
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</form>
+
+		</div>
+    	
+  
+   
+
+      </div>
+  <footer class="footer mt-5" data-background-color="orange">
+    <div class=" container ">
+      <nav>
+        <ul>
+          <li>
+            <a href="#">
+              Como funciona
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Sobre nós
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Contato
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Termos de uso e privacidade
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Ajuda
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  
+  <script src="../../js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="../../js/all.min.js" type="text/javascript"></script>
+  
+  <script src="../../js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../../js/core/bootstrap.min.js" type="text/javascript"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="../../js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../../js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+  <script src="../../js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../../js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
+ 
+  <script>
+    $(document).ready(function() {
+      // the body of this function is in assets/js/now-ui-kit.js
+      nowuiKit.initSliders();
+    });
+
+    function scrollToDownload() {
+
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+
+    
+  </script>  
 	
-	<form method="post">
-		Nome do Livro:<input type="text" value="" name="nome">
-		Descricao:<input type="text" value="" name="descricao">
-		Ano de Lancamento:<input type="date" value="" name="anolancamento">
-		Editora:<input type="text" value="" name="editora">
-		<button type="submit">Salvar</button>
-	</form>
 	
+</body>
 </html>
 

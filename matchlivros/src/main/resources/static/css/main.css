@@ -1,0 +1,179 @@
+.bg-svg{
+    width: 100%;
+}
+
+.bg{
+    width: 100%;
+    margin-top: -1%;
+}
+
+.bg-white{
+    background-color: #fff;
+}
+.navbar-brand img{
+    width: 2rem;
+    margin-top: -25%;
+    margin-right: 5%;
+}
+
+.collapsed-categories{
+    color: #D3D3D3
+}
+
+.navbar-collapse-c{
+    z-index: 2000 !important;
+}
+
+.search-books .navbar-search{
+    width: 25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.navbar-search input{
+    font-size: .85rem;
+}
+
+.border-0{
+    border: 0 !important
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    height: 2.5rem;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6e707e;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d1d3e2;
+    border-radius: .35rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-search{
+    margin: 0;
+    border: 1px solid #fff
+}
+
+
+.input-search{
+    width: 50vw !important
+}
+.search-books{
+    margin-right: 10%;
+}
+
+
+.navbar-categories{
+    margin-top: 6.2rem
+}
+
+.navbar-principal{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.nav-categories{
+    margin: 0
+}
+
+.text-overflow{
+    overflow: hidden;
+    text-overflow: Ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-height: 1.2;        /* fallback */
+    max-height: 1.2*3;       /* fallback */
+ }
+
+ .username{
+     font-size: 0.8rem
+ }
+
+ .btn-solicitacao{
+     width: 100%
+ }
+
+
+ .card-img-top{
+    height: 25rem
+ }
+
+
+ 
+ #girl-login{
+     margin-top: 10%
+ }
+
+ .m-img-register{
+     margin-top: 20%
+ }
+
+
+ .btn-google{
+     background-color: #dd4b39;
+ }
+
+ .btn-google:hover{
+    background-color: #E78173;
+ }
+
+ .btn-facebook{
+     background-color: #3b5998;
+ }
+
+ .btn-facebook:hover{
+     background-color: #5D7DC0;
+ }
+
+ .btn-twitter{
+     background-color: #55acee;
+ }
+
+ .btn-twitter:hover{
+     background-color: #90C8F4;
+ }
+
+
+
+
+
+
+ 
+.btn-actions{
+    transition: filter 0.5s ease;
+}
+.btn-actions:hover{
+    filter: opacity(0.8); 
+}
+
+
+.remove-book{
+    font-size: 1.5rem;
+}
+
+.btn-filter{
+    margin: 0;
+}
+
+.btn-filter:hover{
+   cursor: default !important;
+}
+
+.nav-filter{
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15)
+}
+
+
+.text-register-book{
+	color: #6e707e;
+}
+
+
+.register-book{
+	border-left: 1px solid #d1d3e2 !important
+}

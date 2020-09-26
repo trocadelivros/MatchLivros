@@ -1,41 +1,400 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="PT-BR">
 <head>
 <meta charset="UTF-8">
-<title>Match Livros</title>
-<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/home.css" th:href="@{/css/home.css}"  />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+<title>Match de livros - encontre o seu livro ideal</title>
+
+<!--     Fonts and icons     -->
+<link rel="icon" type="image/png" href="../img/icon.png" th:href="@{/img/icon.png}">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<!-- CSS Files -->
+
+<link rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<link href="../css/now-ui-kit.css?v=1.3.0" rel="stylesheet" th:href="@{/css/now-ui-kit.css?v=1.3.0}" />
+<link href="../css/main.css" rel="stylesheet" th:href="@{/css/main.css}" />
 </head>
-<body>
-	
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Match Livros</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Perfil</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Historia</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Contato</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<body class="index-page sidebar-collapse">
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-principal">
+		<div class="container">
+			<div class="navbar-translate">
+				<a class="navbar-brand" href="#" rel="tooltip" title="Encontre seu livro ideal" data-placement="bottom"> 
+					<img src="../img/logo-mdl.png">Match de livros
+				</a>
+				<button class="navbar-toggler navbar-toggler" type="button" data toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-bar top-bar"></span> 
+					<span class="navbar-toggler-bar middle-bar"></span> 
+					<span class="navbar-toggler-bar bottom-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse justify-content-end nav-i" id="navigation" data-nav-image="../img/blurred-image-1.jpg">
+				<div class="search-books">
+					<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group">
+							<input type="text" class="form-control bg-light border-0 small"
+								placeholder="Pesquisar livros..." aria-label="Search"
+								aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-primary btn-search" type="button">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div>
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link btn btn-neutral"
+							href="./pages/authentication/signin.html"> <i
+								class="now-ui-icons users_circle-08"></i>
+								<p>Entre ou cadastre-se</p>
+						</a></li>
+						<li class="nav-item dropdown"><a href="#" class="nav-link"
+							id="navbarDropdownMenuLink1" data-toggle="dropdown"> <i
+								class="now-ui-icons ui-2_favourite-28"></i>
+								<p>Favoritos</p>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</nav>
+
+	<!-- End Navbar -->
+
+	<!-- Start other Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-categories">
+		<div class="container">
+			<div class="navbar-translate">
+				<div></div>
+				<button class="navbar-toggler-c navbar-toggler-c" type="button"
+					data-toggle="collapse" data-target="#navigation"
+					aria-controls="navigation-index" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-bar navbar-toggler-black top-bar"></span>
+					<span class="navbar-toggler-bar navbar-toggler-black middle-bar"></span>
+					<span class="navbar-toggler-bar navbar-toggler-black bottom-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse justify-content-center nav-c"
+				id="navigation">
+				<ul class="navbar-nav nav-categories">
+					<li class="nav-item mr-5"><a class="nav-link text-muted"
+						href="#">
+							<p class="text-muted"></p>Literatura
+							</p>
+					</a></li>
+					<li class="nav-item mr-5"><a class="nav-link"
+						href="#">
+							<p class="text-muted">Técnicos e profissionais</p>
+					</a></li>
+					<li class="nav-item mr-5"><a class="nav-link"
+						href="#">
+							<p class="text-muted">Outros idiomas</p>
+					</a></li>
+					<li class="nav-item mr-5"><a class="nav-link"
+						href="#">
+							<p class="text-muted">Desenvolvimento pessoal</p>
+					</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="card">
+
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-6 col-lg-6 mb-4 ">
+								<h3 class="card-title">Veja como funciona</h3>
+								<p class="mt-3">Dê match com os livros que você curtiu, seja
+									por troca ou doação.</p>
+								<p>O nosso site funciona como um intermediário para as
+									pessoas que querem doar ou trocar livros. Você tem a opção de
+									cadastrar o livro que tem na sua estante como um objeto para
+									troca ou para doação e a entrega é combinada com o interessado.
+								</p>
+								<div class="d-flex justify-content-end mt-3">
+									<a href="#" class="btn btn-primary btn-round btn-lg">Ver
+										mais detalhes</a>
+								</div>
+
+							</div>
+							<div id="anim" class="col-sm-6 col-lg-6 mb-4">
+								<lottie-player autoplay loop mode="normal"
+									src="https://assets10.lottiefiles.com/packages/lf20_cKlZZR.json"
+									style="width: 100%"> </lottie-player>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
 
 
-<h1>Teste</h1>
-	
-	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
-	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+			<h3 class="jumbotron-heading text-center mt-5 mb-5">Mais
+				populares</h3>
+			<div class="card-deck">
+				<div class="row">
+					<div class="col-md-12 col-lg-4">
+						<div class="card">
+							<img class="card-img-top" src="../img/livros/ac.jpg"
+								alt="Imagem de capa do card">
+							<div class="card-body">
+								<h5 class="card-title">Assassin's Creed - Bandeira negra</h5>
+								<p class="card-text text-overflow">"Estava enfeitiçado pelo
+									homem do capuz. hipnotizado por este agente da morte, que
+									ignorava a carnificina à sua volta, esperando pelo seu momento
+									de atacar" Estamos na Era Áurea da Pirataria e o Novo Mundo
+									chama por nós. Edward Kenway é o impetuoso jovem filho de um
+									vendedor de lã.</p>
+								<p class="username">Por: Aline Ferreira</p>
+								<span class="badge badge-primary">Doação</span>
+								<div class="d-flex justify-content-center mt-3">
+									<a href="#" class="btn btn-primary btn-solicitacao"
+										data-toggle="modal" data-target="#myModal">Solicitar</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<img class="card-img-top" src="../img/livros/pj.jpg"
+							alt="Imagem de capa do card">
+						<div class="card-body">
+							<h5 class="card-title">Livros Percy Jackson</h5>
+							<p class="card-text text-overflow">A vida do adolescente
+								Percy Jackson, que está sempre pronto para entrar em uma
+								confusão, torna-se bem mais complicada quando ele descobre que é
+								filho do deus grego Poseidon. Em um campo de treinamento para
+								filhos das divindades, Percy aprende a tirar proveito de seus
+								poderes divinos e se preparea para a maior aventura de sua vida.</p>
+							<p class="username">Por: Davi Santos</p>
+							<span class="badge badge-primary">Troca</span>
+							<div class="d-flex justify-content-center mt-3">
+								<a href="#" class="btn btn-primary btn-solicitacao"
+									data-toggle="modal" data-target="#myModal">Solicitar</a>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<img class="card-img-top" src="../img/livros/egu.jpg"
+							alt="Imagem de capa do card">
+						<div class="card-body">
+							<h5 class="card-title">Essential grammar in use</h5>
+							<p class="card-text text-overflow">Essential grammar in use'
+								é uma gramática inglesa para consulta e prática, especialmente
+								elaborada para estudantes de língua portuguesa com um nível
+								básico de inglês. As páginas da esquerda contêm explicações de
+								um determinado ponto gramatical</p>
+							<p class="username">Por: Camila Correia Cardoso</p>
+							<span class="badge badge-primary">Doação</span>
+							<div class="d-flex justify-content-center mt-3">
+								<a href="#" class="btn btn-primary btn-solicitacao"
+									data-toggle="modal" data-target="#myModal">Solicitar</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header justify-content-center bg-primary">
+							<button type="button" class="close text-light"
+								data-dismiss="modal" aria-hidden="true">
+								<i class="now-ui-icons ui-1_simple-remove"></i>
+							</button>
+							<h3 class="card-title title-up text-light">Cadastro</h3>
+						</div>
+						<div class="bg">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+								class="bg-svg">
+              <path fill="#f96332" fill-opacity="1"
+									d="M0,256L60,229.3C120,203,240,149,360,144C480,139,600,181,720,208C840,235,960,245,1080,234.7C1200,224,1320,192,1380,176L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+          </svg>
+						</div>
+						<div class="modal-body">
+							<form class="form" method="" action="">
+								<div class="card-header text-center bg-white">
+									<div class="social-line">
+										<a href="#pablo"
+											class="btn btn-primary btn-facebook btn-icon btn-round">
+											<i class="fab fa-facebook-square text-light"></i>
+										</a> <a href="#pablo"
+											class="btn btn-primary btn-twitter btn-icon btn-lg btn-round">
+											<i class="fab fa-twitter text-light"></i>
+										</a> <a href="#pablo"
+											class="btn btn-primary btn-google btn-icon btn-round"> <i
+											class="fab fa-google-plus text-light"></i>
+										</a>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="input-group no-border">
+										<div class="input-group-prepend">
+											<span class="input-group-text"> <i
+												class="now-ui-icons users_circle-08"></i>
+											</span>
+										</div>
+										<input type="text" class="form-control" placeholder="Nome...">
+									</div>
+									<div class="input-group no-border">
+										<div class="input-group-prepend">
+											<span class="input-group-text"> <i
+												class="now-ui-icons text_caps-small"></i>
+											</span>
+										</div>
+										<input type="text" placeholder="Sobrenome..."
+											class="form-control" />
+									</div>
+									<div class="input-group no-border">
+										<div class="input-group-prepend">
+											<span class="input-group-text"> <i
+												class="now-ui-icons ui-1_email-85"></i>
+											</span>
+										</div>
+										<input type="text" class="form-control" placeholder="Email...">
+									</div>
+									<!-- If you want to add a checkbox to this form, uncomment this code -->
+									<!-- <div class="checkbox">
+              <input id="checkboxSignup" type="checkbox">
+                <label for="checkboxSignup">
+                Unchecked
+                </label>
+              </div> -->
+								</div>
+								<div class="card-footer text-center bg-white">
+									<a href="#pablo" class="btn btn-primary btn-round btn-lg">Cadastre-se</a>
+								</div>
+							</form>
+						</div>
+						<div class="text-muted w-100 text-center">
+							<p>ou</p>
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<div class="text-center w-100">
+								Já tem cadastro? <a href="#">Faça login</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<h3 class="jumbotron-heading text-center mt-5 mb-5">Adicionados
+				recentemente</h3>
+			<div class="card-deck">
+				<div class="card">
+					<img class="card-img-top" src="../img/livros/ac.jpg"
+						alt="Imagem de capa do card">
+					<div class="card-body">
+						<h5 class="card-title">Assassin's Creed - Bandeira negra</h5>
+						<p class="card-text text-overflow">"Estava enfeitiçado pelo
+							homem do capuz. hipnotizado por este agente da morte, que
+							ignorava a carnificina à sua volta, esperando pelo seu momento de
+							atacar" Estamos na Era Áurea da Pirataria e o Novo Mundo chama
+							por nós. Edward Kenway é o impetuoso jovem filho de um vendedor
+							de lã.</p>
+						<p class="username">Por: Aline Ferreira</p>
+						<span class="badge badge-primary">Doação</span>
+						<div class="d-flex justify-content-center mt-3">
+							<a href="#" class="btn btn-primary btn-solicitacao"
+								data-toggle="modal" data-target="#myModal">Solicitar</a>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<img class="card-img-top" src="../img/livros/pj.jpg"
+						alt="Imagem de capa do card">
+					<div class="card-body">
+						<h5 class="card-title">Livros Percy Jackson</h5>
+						<p class="card-text text-overflow">A vida do adolescente Percy
+							Jackson, que está sempre pronto para entrar em uma confusão,
+							torna-se bem mais complicada quando ele descobre que é filho do
+							deus grego Poseidon. Em um campo de treinamento para filhos das
+							divindades, Percy aprende a tirar proveito de seus poderes
+							divinos e se preparea para a maior aventura de sua vida.</p>
+						<p class="username">Por: Davi Santos</p>
+						<span class="badge badge-primary">Troca</span>
+						<div class="d-flex justify-content-center mt-3">
+							<a href="#" class="btn btn-primary btn-solicitacao"
+								data-toggle="modal" data-target="#myModal">Solicitar</a>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<img class="card-img-top" src="../img/livros/egu.jpg"
+						alt="Imagem de capa do card">
+					<div class="card-body">
+						<h5 class="card-title">Essential grammar in use</h5>
+						<p class="card-text text-overflow">Essential grammar in use' é
+							uma gramática inglesa para consulta e prática, especialmente
+							elaborada para estudantes de língua portuguesa com um nível
+							básico de inglês. As páginas da esquerda contêm explicações de um
+							determinado ponto gramatical</p>
+						<p class="username">Por: Camila Correia Cardoso</p>
+						<span class="badge badge-primary">Doação</span>
+						<div class="d-flex justify-content-center mt-3">
+							<a href="#" class="btn btn-primary btn-solicitacao"
+								data-toggle="modal" data-target="#myModal">Solicitar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+		<!--   Core JS Files   -->
+		<script src="../js/core/jquery.min.js" type="text/javascript"></script>
+		<script src="../js/core/popper.min.js" type="text/javascript"></script>
+		<script src="../js/core/bootstrap.min.js" type="text/javascript"></script>
+		<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+		<script src="../js/plugins/bootstrap-switch.js"></script>
+		<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+		<script src="../js/plugins/nouislider.min.js"
+			type="text/javascript"></script>
+		<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+		<script src="../js/plugins/bootstrap-datepicker.js"
+			type="text/javascript"></script>
+		<!--  Google Maps Plugin    -->
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+		<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+		<script src="../js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+		<script
+			src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+		<script
+			src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
+
+		<script>
+    $(document).ready(function() {
+      // the body of this function is in assets/js/now-ui-kit.js
+      nowuiKit.initSliders();
+    });
+
+    function scrollToDownload() {
+
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+
+    
+  </script>
 </body>
 </html>
