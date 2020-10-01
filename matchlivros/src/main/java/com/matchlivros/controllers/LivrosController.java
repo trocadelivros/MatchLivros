@@ -19,11 +19,11 @@ public final class LivrosController {
 		return "livros/formLivro";
 	}
 	
-	@RequestMapping(value="/cadastrarLivro", method=RequestMethod.POST)
+	/*@RequestMapping(value="/cadastrarLivro", method=RequestMethod.POST)
 	public String form(Livros livros) {
 		lr.save(livros);
 		
 		return "redirect:/cadastrarLivro";
-	}
+	}*/
 	
 }

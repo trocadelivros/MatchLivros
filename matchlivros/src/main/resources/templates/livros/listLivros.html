@@ -135,117 +135,23 @@
   </nav>
   
   <div class="wrapper">
-  	<div class="row bg-white mb-3 p-3 nav-filter">
-        <h1 class="h5 ml-5" id="camera">Cadastrar livro</h1>
-   	</div>
-    
-    <div class="container" >
-    	<!-- <form action="/file-upload" class="dropzone mb-5">
-  			<div class="fallback">
-    			<input id="file-input" name="file" type="file" multiple  />
-  			</div>
-  
-  			<div class="w-100" >
-	  			<label for="file" class="d-flex justify-content-center" >
-					<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_uKAOG6.json"  
-						background="transparent"  
-						speed="1"  
-						style="width: 300px; 
-						height: 300px;" autoplay>
-					</lottie-player>
-	  			</label>
+<div th:each="livro: ${livros}" style="margin: 10px">
+			<div class="card bg-light mb-3" >
+				
+				<div class="card-header" th:text="${livro.nome}"></div>
+				
+				<div class="card-body">
+				
+				<div><p class="card-text text-muted">Imagens</p></div>
+				<div th:each="imagem: ${livro.images}" class="cat">
+					<img th:src="*{'/img/' + imagem.id}">
+					<div th:text="${imagem.docName}" class="btn btn-sm btn-primary" disabled></div>
+				</div>
+				</div>
+				
+
 			</div>
-		</form> -->
-
-			<form method="post"  name="uploadFiles" encType="multipart/form-data" >
-			 <!--  <div id="my-awesome-dropzone" class="dropzone">
-			  	<input id="image" name="image" type="file" multiple  />
-			  
-			  </div>
-			<div class="dropzone-previews"></div> -->
-				<div class="form-group">
-					<label for="nome">Título</label>
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text text-register-book pr-3"><i class="fas fa-pencil-alt"></i></span>
-						</div>
-						<input type="text" class="form-control register-book" id="nome" name="nome"
-							placeholder="Digite o título">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="autor">Autor</label>
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text text-register-book pr-3"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control register-book" id="autor" name="autor"
-							placeholder="Digite o nome do autor">
-					</div>
-				</div>
-				<div class="row">
-				<div class="form-group  col-md-6">
-					<label for="autor">Ano de publicação</label>
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text text-register-book pr-3"><i class="far fa-calendar"></i></span>
-						</div>
-						<input type="text" class="form-control register-book" id="anolancamento" name="anolancamento"
-							placeholder="Digite o ano de publicação">
-					</div>
-				</div>
-				
-				<div class="form-group  col-md-6">
-					<label for="autor">Edição</label>
-					<div class="input-group">
-						<input type="text" class="form-control register-book" id="edicao" name="edicao"
-							placeholder="Digite o número de edição">
-					</div>
-				</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="autor">Editora</label>
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text text-register-book pr-3"><i class="fas fa-book"></i></span>
-						</div>
-						<input type="text" class="form-control register-book" id="editora" name="editora"
-							placeholder="Digite o nome da editora">
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="descricao">Sinopse ou descrição</label>
-					<div class="input-group">
-						<textarea class="form-control register-book" id="descricao" name="descricao"
-							placeholder="Digite aqui a descrição ou sinopse do livro"></textarea>
-						
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="descricao">Selecione o tipo de transação:</label>
-					<div class="input-group">
-						<select class="form-control register-book" id="transacao">
-      						<option value="troca">Troca</option>
-      						<option value="doacao">Doação</option>
-    					</select>
-						
-					</div>
-				</div>
-
-				<!--  Nome do Livro:<input type="text" value="" name="nome">
-				Descricao:<input type="text" value="" name="descricao"> Ano
-				de Lancamento:<input type="date" value="" name="anolancamento">
-				Editora:<input type="text" value="" name="editora">-->
-				<button type="submit" class="btn btn-primary" id="submit-all">Continuar</button>
-				<a></a>
-			</form>
-				<button class="btn btn-primary" id="btn-teste">Salvar</button>
-
 		</div>
-    	
   
    
 
@@ -323,6 +229,81 @@
         $( "#file-input" ).click();
 });
     
+    
+    
+    Dropzone.options.myAwesomeDropzone = {
+    		url: "/uploadImages",
+    		params:{
+    			images: "images",
+    			idLivro: document.querySelector('#idLivro').value,
+    		},
+            autoProcessQueue: true,
+            uploadMultiple: true,
+            //previewsContainer: '#dropzonePreview',
+            parallelUploads: 100,
+            maxFiles: 100,
+            acceptedFiles: "image/*",
+
+            init: function () {
+                var submitButton = document.querySelector("#submit-all");
+                var testeBtn = document.querySelector("#btn-teste");
+                var wrapperThis = this;
+				var teste = document.querySelector("#teste");
+            	console.log(document.querySelector('#idLivro'));
+            	console.log(document.querySelector('#idLivro').value);
+
+				var sla = $("#receivedFiles");
+				var testeF = $("#teste-file");
+                submitButton.addEventListener("click", function () {
+
+                	e.preventDefault();
+                    e.stopPropagation();
+                    wrapperThis.processQueue();
+                });
+				
+                testeBtn.addEventListener("click", function () {
+                	console.log(wrapperThis.files)
+                	//testeF.src = wrapperThis.files[0].dataURL
+                	//testeF[0].files[0].name = wrapperThis.files[0].name;
+                	//testeF[0].files[0].type = wrapperThis.files[0].type;
+                	//testeF[0].files[0].size = wrapperThis.files[0].size;
+                	console.log(testeF)
+                	
+                	//console.log(testeF[0].files)
+                	//console.log(livro)
+                	//console.log(sla)
+                	//testeF.src=sla.
+                	//console.log(MultipartFile)
+                    wrapperThis.processQueue();
+                });
+                
+                this.on("successmultiple", function (files, response) {
+                	console.log("arq", files, "res", response)
+                    //$('#files').val(response);
+                });
+                this.on("addedfile", function (file) {
+                    // Create the remove button
+                    var removeButton = Dropzone.createElement("<button class='btn btn-lg dark'>Remove File</button>");
+
+                    // Listen to the click event
+                    removeButton.addEventListener("click", function (e) {
+                        // Make sure the button click doesn't submit the form:
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        // Remove the file preview.
+                        wrapperThis.removeFile(file);
+                        // If you want to the delete the file on the server as well,
+                        // you can do the AJAX request here.
+                    });
+
+                    // Add the button to the file preview element.
+                    file.previewElement.appendChild(removeButton);
+                });
+ 
+            }
+        };
+
   </script>  
 	
 	

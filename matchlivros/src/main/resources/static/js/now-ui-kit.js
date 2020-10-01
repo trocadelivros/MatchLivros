@@ -396,3 +396,10 @@ dropzone.uploadFiles = function(files) {
     }
   }
 }
+
+
+
+$( "#camera" ).click(function() {
+		alert("oooi");
+        //$( "#file" ).click();
+});

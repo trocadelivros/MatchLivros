@@ -4,8 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.matchlivros.models.Livros;
 
-public interface LivrosRepository extends CrudRepository<Livros, String>{
+public interface LivrosRepository extends CrudRepository<Livros, Long>{
 
-		
-	
 }

@@ -177,3 +177,7 @@
 .register-book{
 	border: 1px solid #d1d3e2 !important
 }
+
+.camera{
+	z-index: -1000
+}
