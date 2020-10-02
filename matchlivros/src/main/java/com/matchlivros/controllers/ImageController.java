@@ -164,7 +164,7 @@ public class ImageController {
 					.body(new ByteArrayResource(image.getData()));
 		}
 	
-	@GetMapping("/img/{id}")
+	@GetMapping("/convertImage/{id}")
 	public ResponseEntity<byte[]> getImage(@PathVariable("id") Integer id) throws IOException{
 
 		byte[] imageContent = imageService.writeImageToResponse(id);

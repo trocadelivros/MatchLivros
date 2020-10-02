@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="PT-BR">
+<html lang= "PT-BR" xmlns:th="http://www.thymeleaf.org"
+	  xmls:layout="http://ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -24,7 +25,7 @@
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="#" rel="tooltip" title="Encontre seu livro ideal" data-placement="bottom"> 
-					<img src="../img/logo-mdl.png">Match de livros
+					<img th:src="@{/img/logo-mdl.png}">Match de livros
 				</a>
 				<button class="navbar-toggler navbar-toggler" type="button" data toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-bar top-bar"></span> 

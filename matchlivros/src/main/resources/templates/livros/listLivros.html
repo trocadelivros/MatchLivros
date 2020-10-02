@@ -28,7 +28,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip" title="Encontre seu livro ideal" data-placement="bottom" target="_blank">
-          <img src="../../img/logo-mdl.png">Match de livros
+          <img th:src="@{/img/logo-mdl.png}">Match de livros
         </a>
         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
           <div class="input-group main-search">
@@ -135,25 +135,51 @@
   </nav>
   
   <div class="wrapper">
-<div th:each="livro: ${livros}" style="margin: 10px">
-			<div class="card bg-light mb-3" >
-				
-				<div class="card-header" th:text="${livro.nome}"></div>
-				
-				<div class="card-body">
-				
-				<div><p class="card-text text-muted">Imagens</p></div>
-				<div th:each="imagem: ${livro.images}" class="cat">
-					<img th:src="*{'/img/' + imagem.id}">
-					<div th:text="${imagem.docName}" class="btn btn-sm btn-primary" disabled></div>
-				</div>
-				</div>
-				
+      <div class="container">
+      <h3 class="jumbotron-heading text-center mt-5 mb-5">Adicionados recentemente</h3>
+    <div >
+    <div class="row">
+         <div class="card col-md-4" th:each="livro: ${livros}">
+       <!-- <img class="card-img-top" src="../../assets/img/livros/ac.jpg" alt="Imagem de capa do card"> -->
+       	<div class="row justify-content-center card-img-top">
+            <div class="col-lg-12 col-md-12" >
+              <div th:id="'carouselExampleIndicators' + ${livro.codigo}" class="carousel slide col-md-12" data-ride="carousel" >
+                <ol class="carousel-indicators" >
+                  <li th:each="imagem, row: ${livro.images}" data-target="#carouselExampleIndicators" data-slide-to="${row.index}" th:classappend="${row.index.equals(0)} ? active : ''" ></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item" th:classappend="${row.index.equals(0)} ? active : ''" th:each="imagem, row: ${livro.images}">
+                  
+                    <img class="d-block w-100 books-pictures" th:src="*{'/convertImage/' + imagem.id}"  th:alt="'Imagem do livro' + ${livro.nome}"  >
+                  </div>
+                 
+                </div>
+                <a class="carousel-control-prev" th:href="'#carouselExampleIndicators'+ ${livro.codigo}" role="button" data-slide="prev" >
+                  <i class="now-ui-icons arrows-1_minimal-left"></i>
+                </a>
+                <a class="carousel-control-next" th:href="'#carouselExampleIndicators'+ ${livro.codigo}" role="button" data-slide="next">
+                  <i class="now-ui-icons arrows-1_minimal-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+       <div class="card-body">
+         <h5 class="card-title" th:text="${livro.nome}"></h5>
+         <p class="card-text text-overflow" th:text="${livro.descricao}"></p>
+         <p class="username">Por: USUÁRIO AQUI </p>
+         <span class="badge badge-primary" th:text="${livro.transacao}"></span>
+         <div class="d-flex justify-content-center mt-3">
+           <a href="#" class="btn btn-primary btn-solicitacao" data-toggle="modal" data-target="#myModal">Solicitar</a>
+         </div>
+       </div> 
+     </div>
+    
+    </div>
 
-			</div>
-		</div>
-  
-   
+
+ </div>
+ 
+      </div>
 
       </div>
   <footer class="footer mt-5" data-background-color="orange">
@@ -198,111 +224,16 @@
   <script src="../../js/core/bootstrap.min.js" type="text/javascript"></script>
   <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
   <script src="../../js/plugins/bootstrap-switch.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="../../js/plugins/nouislider.min.js" type="text/javascript"></script>
   <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
   <script src="../../js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
   <script src="../../js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
  
   <script>
-    $(document).ready(function() {
-      // the body of this function is in assets/js/now-ui-kit.js
-      nowuiKit.initSliders();
-    });
+   
 
-    function scrollToDownload() {
-
-      if ($('.section-download').length != 0) {
-        $("html, body").animate({
-          scrollTop: $('.section-download').offset().top
-        }, 1000);
-      }
-    }
-
-    $( "#camera" ).click(function() {
-    	//alert("oi")
-        $( "#file-input" ).click();
-});
-    
-    
-    
-    Dropzone.options.myAwesomeDropzone = {
-    		url: "/uploadImages",
-    		params:{
-    			images: "images",
-    			idLivro: document.querySelector('#idLivro').value,
-    		},
-            autoProcessQueue: true,
-            uploadMultiple: true,
-            //previewsContainer: '#dropzonePreview',
-            parallelUploads: 100,
-            maxFiles: 100,
-            acceptedFiles: "image/*",
-
-            init: function () {
-                var submitButton = document.querySelector("#submit-all");
-                var testeBtn = document.querySelector("#btn-teste");
-                var wrapperThis = this;
-				var teste = document.querySelector("#teste");
-            	console.log(document.querySelector('#idLivro'));
-            	console.log(document.querySelector('#idLivro').value);
-
-				var sla = $("#receivedFiles");
-				var testeF = $("#teste-file");
-                submitButton.addEventListener("click", function () {
-
-                	e.preventDefault();
-                    e.stopPropagation();
-                    wrapperThis.processQueue();
-                });
-				
-                testeBtn.addEventListener("click", function () {
-                	console.log(wrapperThis.files)
-                	//testeF.src = wrapperThis.files[0].dataURL
-                	//testeF[0].files[0].name = wrapperThis.files[0].name;
-                	//testeF[0].files[0].type = wrapperThis.files[0].type;
-                	//testeF[0].files[0].size = wrapperThis.files[0].size;
-                	console.log(testeF)
-                	
-                	//console.log(testeF[0].files)
-                	//console.log(livro)
-                	//console.log(sla)
-                	//testeF.src=sla.
-                	//console.log(MultipartFile)
-                    wrapperThis.processQueue();
-                });
-                
-                this.on("successmultiple", function (files, response) {
-                	console.log("arq", files, "res", response)
-                    //$('#files').val(response);
-                });
-                this.on("addedfile", function (file) {
-                    // Create the remove button
-                    var removeButton = Dropzone.createElement("<button class='btn btn-lg dark'>Remove File</button>");
-
-                    // Listen to the click event
-                    removeButton.addEventListener("click", function (e) {
-                        // Make sure the button click doesn't submit the form:
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        // Remove the file preview.
-                        wrapperThis.removeFile(file);
-                        // If you want to the delete the file on the server as well,
-                        // you can do the AJAX request here.
-                    });
-
-                    // Add the button to the file preview element.
-                    file.previewElement.appendChild(removeButton);
-                });
- 
-            }
-        };
 
   </script>  
 	

@@ -156,17 +156,16 @@
 	  			</label>
 			</div>
 		</form> -->
-			<h3>Livro: <span th:text="${livro.nome}"></span>  <span th:text="${livro.codigo}"></span></h3>
+			<h3>Adicione imagens para o livro <span th:text="${livro.nome}"></span> </span></h3>
 
 			<form method="post"  name="uploadImages" encType="multipart/form-data" th:object="${livro}">
 			  <div id="my-awesome-dropzone" class="dropzone">			  
 			  </div>
 			<div class="dropzone-previews"></div>
-			<input type="number" th:value="${livro.codigo}" name="idLivro" id="idLivro">
+			<input type="number" th:value="${livro.codigo}" name="idLivro" id="idLivro" hidden>
 			</form>
-			<a class="btn btn-primary" th:href="@{/livros/listLivros}">Salvar</a>
-				<button class="btn btn-primary" id="btn-teste">Salvar</button>
-
+			<a class="btn btn-primary" th:href="@{/listar}">Salvar</a>
+			<a class="btn btn-danger" th:href="@{/listar}">Cancelar</a>
 		</div>
     	
   

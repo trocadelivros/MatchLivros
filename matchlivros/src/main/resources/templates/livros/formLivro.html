@@ -157,7 +157,7 @@
 			</div>
 		</form> -->
 
-			<form method="post"  name="uploadFiles" encType="multipart/form-data" >
+			<form method="post" name="uploadFiles" action="uploadFiles" >
 			 <!--  <div id="my-awesome-dropzone" class="dropzone">
 			  	<input id="image" name="image" type="file" multiple  />
 			  
@@ -227,7 +227,7 @@
 				<div class="form-group">
 					<label for="descricao">Selecione o tipo de transação:</label>
 					<div class="input-group">
-						<select class="form-control register-book" id="transacao">
+						<select class="form-control register-book" id="transacao" name="transacao">
       						<option value="troca">Troca</option>
       						<option value="doacao">Doação</option>
     					</select>
@@ -242,7 +242,6 @@
 				<button type="submit" class="btn btn-primary" id="submit-all">Continuar</button>
 				<a></a>
 			</form>
-				<button class="btn btn-primary" id="btn-teste">Salvar</button>
 
 		</div>
     	
@@ -304,24 +303,7 @@
   <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
  
   <script>
-    $(document).ready(function() {
-      // the body of this function is in assets/js/now-ui-kit.js
-      nowuiKit.initSliders();
-    });
-
-    function scrollToDownload() {
-
-      if ($('.section-download').length != 0) {
-        $("html, body").animate({
-          scrollTop: $('.section-download').offset().top
-        }, 1000);
-      }
-    }
-
-    $( "#camera" ).click(function() {
-    	//alert("oi")
-        $( "#file-input" ).click();
-});
+   
     
   </script>  
 	
